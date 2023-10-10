@@ -123,4 +123,4 @@ DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 #CSRF
 
-CSRF_TRUSTED_ORIGINS = ['https://fire-reporting.azurewebsites.net']
+CSRF_TRUSTED_ORIGINS = ['https://www.fire-reporting.azurewebsites.net']
