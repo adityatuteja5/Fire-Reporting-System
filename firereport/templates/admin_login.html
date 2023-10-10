@@ -26,7 +26,7 @@
 {% if error == "no" %}
 <script>
     alert('Logged In Successfully');
-    window.location=('{% url 'dashboard' %}');
+    window.location.href = "{% url 'dashboard' %}";
 </script>
 {% endif %}
 
