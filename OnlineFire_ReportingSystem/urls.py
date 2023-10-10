@@ -28,6 +28,6 @@ urlpatterns = [
     path('search', search, name='search'),
     path('changePassword', changePassword, name='changePassword'),
 
-    path('logout/', Logout, name='logout'),
+    path('logout/', logout, name='logout'),
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

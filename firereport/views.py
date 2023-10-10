@@ -7,6 +7,8 @@ from datetime import date
 from datetime import datetime
 from django.contrib.auth.models import User
 from django.contrib.auth import login,logout,authenticate
+from django.contrib.auth.password_validation import CommonPasswordValidator, validate_password
+from django.core.exceptions import ValidationError
 # Create your views here.
 
 def index(request):
@@ -225,6 +227,7 @@ def search(request):
             firereport = ""
     return render(request, 'admin/search.html', locals())
 
+
 def changePassword(request):
     if not request.user.is_authenticated:
         return redirect('admin_login')
@@ -236,15 +239,20 @@ def changePassword(request):
         try:
             u = User.objects.get(id=request.user.id)
             if user.check_password(o):
-                u.set_password(n)
-                u.save()
-                error = "no"
+                try:
+                    validate_password(n, user)
+                    u.set_password(n)
+                    u.save()
+                    error = "no"
+                except ValidationError:
+                    error = "common"
             else:
                 error = 'not'
         except:
             error = "yes"
     return render(request, 'admin/changePassword.html', locals())
 
-def Logout(request):
+
+def logout(request):
     logout(request)
     return redirect('index')
