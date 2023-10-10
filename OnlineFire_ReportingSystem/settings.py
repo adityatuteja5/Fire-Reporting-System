@@ -1,5 +1,10 @@
 import os
 from pathlib import Path
+from my_secrets.definitions import SECRET_KEY
+from my_secrets.definitions import ALLOWED_HOSTS
+from my_secrets.definitions import CSRF_TRUSTED_ORIGINS
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -9,12 +14,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '5fv_1886ls8mb8fm^8mnniq=8z0)_jv(@4k6g7(czfmv82wxnz'
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['fire-reporting.azurewebsites.net', '127.0.0.1']
+ALLOWED_HOSTS = ALLOWED_HOSTS
 
 
 # Application definition
@@ -123,4 +128,4 @@ DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 #CSRF
 
-CSRF_TRUSTED_ORIGINS = ['https://fire-reporting.azurewebsites.net']
+CSRF_TRUSTED_ORIGINS = CSRF_TRUSTED_ORIGINS
